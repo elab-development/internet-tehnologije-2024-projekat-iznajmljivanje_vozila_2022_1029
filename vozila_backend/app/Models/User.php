@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin' //za korisnicke uloge
     ];
 
     /**
@@ -38,8 +39,11 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+
+     //korisnik moze napraviti vise iznajmljivanja
+     public function rezervacije()
+    {
+        return $this->hasMany(Rezervacija::class);
+    }
+   
 }
