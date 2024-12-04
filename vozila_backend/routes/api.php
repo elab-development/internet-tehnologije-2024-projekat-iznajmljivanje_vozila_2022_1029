@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AutoController;
+use App\Http\Controllers\RezervacijaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/users', UserController::class)->only(['index','show', 'destroy']);
     Route::post('/auta', [AutoController::class, 'store']); 
     Route::patch('/auta/{id}', [AutoController::class, 'update']); 
+
+    Route::resource('/rezervacije', RezervacijaController::class);
 });   

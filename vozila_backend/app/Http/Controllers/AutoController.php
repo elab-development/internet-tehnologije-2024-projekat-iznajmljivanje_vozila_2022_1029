@@ -14,9 +14,17 @@ class AutoController extends Controller
         return AutoResource::collection($auta);
     }
 
-    /**
-     * Dodavanje novog automobila - samo admin.
-     */
+    public function show($id)
+    {
+        $auto = Auto::with('kategorija')->find($id);
+
+        if (!$auto) {
+            return response()->json(['poruka' => 'Automobil nije pronađen.'], 404);
+        }
+
+        return new AutoResource($auto);
+    }
+
     public function store(Request $request)
     {
         if (!auth()->check() || !auth()->user()->is_admin) {
@@ -37,16 +45,6 @@ class AutoController extends Controller
         return new AutoResource($auto);
     }
 
-    public function show($id)
-    {
-        $auto = Auto::with('kategorija')->find($id);
-
-        if (!$auto) {
-            return response()->json(['poruka' => 'Automobil nije pronađen.'], 404);
-        }
-
-        return new AutoResource($auto);
-    }
 
     public function update(Request $request, $id)
     {
