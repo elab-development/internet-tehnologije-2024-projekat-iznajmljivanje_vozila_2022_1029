@@ -12,8 +12,14 @@ class AutoResource extends JsonResource
      *
      * @return array<string, mixed>
      */
-    public function toArray(Request $request): array
+    public function toArray($request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'price_per_day' => $this->price_per_day,
+            'kategorija' => $this->kategorija ? $this->kategorija->name : null, 
+        ];
     }
 }
