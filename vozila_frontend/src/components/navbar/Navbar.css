@@ -58,3 +58,18 @@
   .nav-link:active{
     color: #E6B31E;
   }
+
+  .nav-logo {
+
+    margin-right: 10px;
+  }
+
+  img {
+    height: 50px;
+    width: 100px;
+  }
+
+  .nav-brand-container {
+    display: flex;
+    align-items: center;
+  }
