@@ -1,0 +1,45 @@
+.pocetna-container {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FCFAF1;
+    color: #343434;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .pocetna-header {
+    margin-bottom: 30px;
+  }
+  
+  .pocetna-header h1 {
+    font-size: 36px;
+    color: #E6B31E;
+    margin-bottom: 10px;
+  }
+  
+  .pocetna-header p {
+    font-size: 18px;
+    color: #343434;
+    margin-bottom: 20px;
+  }
+  
+  .pocetna-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .pocetna-content h2 {
+    font-size: 28px;
+    color: #E6B31E;
+    margin-bottom: 20px;
+  }
+  
+  .pocetna-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #343434;
+    margin-bottom: 20px;
+  }
+  
+  .pocetna-content button {
+    margin-top: 20px;
+  }
