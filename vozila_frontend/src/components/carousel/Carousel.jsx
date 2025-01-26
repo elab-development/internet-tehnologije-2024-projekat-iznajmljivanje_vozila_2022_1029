@@ -14,13 +14,25 @@ const Carousel = ({ images }) => {
   };
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-wrapper">
+      <img
+        src={images[(currentIndex - 1 + images.length) % images.length]}
+        alt="Previous Slide"
+        className="carousel-side-image left"
+      />
+      <img
+        src={images[currentIndex]}
+        alt="Current Slide"
+        className="carousel-image"
+      />
+      <img
+        src={images[(currentIndex + 1) % images.length]}
+        alt="Next Slide"
+        className="carousel-side-image right"
+      />
       <Button className="carousel-button left" onClick={goToPrevious}>
         &#8249;
       </Button>
-      <div className="carousel-image-wrapper">
-        <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className="carousel-image" />
-      </div>
       <Button className="carousel-button right" onClick={goToNext}>
         &#8250;
       </Button>
