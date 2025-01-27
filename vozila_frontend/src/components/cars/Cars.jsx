@@ -97,13 +97,13 @@ const Cars = () => {
       {/* Paginacija */}
       <div className="pagination">
         {Array.from({ length: totalPages }, (_, index) => (
-          <button
+          <Button
             key={index + 1}
             className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
             onClick={() => handlePageChange(index + 1)}
           >
             {index + 1}
-          </button>
+          </Button>
         ))}
       </div>
     </div>
