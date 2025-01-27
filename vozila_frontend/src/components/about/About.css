@@ -1,0 +1,99 @@
+.about-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343434;
+  }
+
+  .about-first-text {
+    width: 900px;
+  }
+  
+  .about-container p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  .recenzije {
+    margin-top: 10px;
+  }
+  
+  .recenzije h2 {
+    margin-bottom: 20px;
+    color: #E6B31E;
+    text-align: center;
+  }
+  
+  .recenzije-list {
+    display: flex;
+    flex-direction: row;
+    height: 280px;
+    width: 1000px;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .recenzija-card {
+    padding: 15px;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+    background-color: #fcfaf1;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .recenzija-card h3 {
+    margin-bottom: 10px;
+    color: #343434;
+  }
+  
+  .recenzija-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+
+  .logos-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .logo-image {
+    width: 350px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .breadcrumbs {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumbs a {
+    color: #E6B31E;
+    text-decoration: none;
+  }
+  
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumbs span {
+    color: #343434;
+  }
