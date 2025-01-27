@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Pocetna from './components/pocetna/Pocetna';
 import Cars from './components/cars/Cars';
 import CarDetails from './components/cars/CarDetails';
+import About from './components/about/About';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Pocetna />} />
           <Route path="/cars" element={<Cars />}/>
           <Route path="/cars/:id" element={<CarDetails />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
