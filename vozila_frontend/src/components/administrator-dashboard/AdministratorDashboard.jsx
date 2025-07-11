@@ -10,10 +10,14 @@ import {
 } from 'recharts';
 import './AdministratorDashboard.css';
 
+import useDeoniceAutomobilskihKompanija from '../hooks/useDeoniceAutomobilskihKompanija';
+
 const AdministratorDashboard = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = sessionStorage.getItem('auth_token');
+
+  const { stocks, loading: stocksLoading, error: stocksError } = useDeoniceAutomobilskihKompanija();
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -96,6 +100,22 @@ const AdministratorDashboard = () => {
               </div>
             ))}
         </div>
+      </div>
+
+      <div className="stock-section">
+        <h2>Top 5 deonica automobilskih kompanija</h2>
+        {stocksLoading && <p>Učitavanje cena...</p>}
+        {stocksError   && <p className="stats-error">{stocksError}</p>}
+        {!stocksLoading && !stocksError && (
+          <div className="stock-list">
+            {stocks.map(s => (
+              <div className="stock-card" key={s.symbol}>
+                <p className="stock-symbol">{s.name}</p>
+               <p className="stock-price">{s.price.toFixed(2)} USD</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
 );
