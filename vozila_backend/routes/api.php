@@ -22,6 +22,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/users', UserController::class)->only(['index','show', 'destroy']);
     Route::post('/auta', [AutoController::class, 'store']); 
     Route::patch('/auta/{id}', [AutoController::class, 'update']); 
-
+    
+    Route::get(
+      '/rezervacije/statistika',
+      [RezervacijaController::class, 'statistics']
+    );
     Route::resource('/rezervacije', RezervacijaController::class);
+
 });   

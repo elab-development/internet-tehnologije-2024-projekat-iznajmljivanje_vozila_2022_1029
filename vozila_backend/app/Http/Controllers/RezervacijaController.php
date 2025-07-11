@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\RezervacijaResource;
+use Illuminate\Support\Facades\DB;
 use App\Models\Auto;
 use App\Models\Rezervacija;
 use Illuminate\Http\Request;
@@ -118,11 +119,51 @@ class RezervacijaController extends Controller
         ], 200);
     }
 
+    public function statistics(Request $request)
+    {
+        $user = auth()->user();
+        if (! $user->is_admin) {
+            return response()->json([
+                'poruka' => 'Nemate dozvolu za ovu rutu.'
+            ], 403);
+        }
 
+        // Ukupan broj rezervacija
+        $totalReservations = Rezervacija::count();
 
+        // Ukupan prihod
+        $totalRevenue = Rezervacija::sum('total_price');
 
+        // Prosečna dužina rezervacije (u danima)
+        $averageLength = Rezervacija::selectRaw('AVG(DATEDIFF(end_date, start_date) + 1) as avg_days')
+            ->value('avg_days');
+        $averageLength = round($averageLength, 2);
 
+        // Rezervacije i prihodi po automobilu
+        $byCar = Rezervacija::select('auto_id',
+                        DB::raw('COUNT(*) as count'),
+                        DB::raw('SUM(total_price) as revenue'))
+                    ->groupBy('auto_id')
+                    ->get()
+                    ->map(function($r) {
+                        $auto = Auto::find($r->auto_id);
+                        return [
+                            'auto_id'    => $r->auto_id,
+                            'auto_name'  => $auto ? $auto->name : 'Nepoznato',
+                            'count'      => (int)$r->count,
+                            'revenue'    => round($r->revenue, 2),
+                        ];
+                    });
 
+        // Najpopularniji auto (po broju rezervacija)
+        $mostPopular = $byCar->sortByDesc('count')->first();
 
-
+        return response()->json([
+            'total_reservations' => $totalReservations,
+            'total_revenue'      => round($totalRevenue, 2),
+            'average_length_days'=> $averageLength,
+            'per_car'            => $byCar,
+            'most_popular'       => $mostPopular,
+        ]);
+    }
 }
