@@ -10,6 +10,7 @@ import CarDetails from './components/cars/CarDetails';
 import About from './components/about/About';
 import Autentifikacija from './components/autentifikacija/Autentifikacija';
 import Rezervacije from './components/rezervacije/Rezervacije';
+import AdministratorDashboard from './components/administrator-dashboard/AdministratorDashboard';
 
 function App() {
   const [isAuth, setIsAuth] = useState(
@@ -59,6 +60,11 @@ function App() {
           <Route
             path="/rezervacije"
             element={isAuth ? <Rezervacije /> : <Navigate to="/" replace />}
+          />
+
+          <Route
+            path="/administrator-dashboard"
+            element={isAuth ? <AdministratorDashboard /> : <Navigate to="/" replace />}
           />
 
           {/* Svi ostali URL-ovi */}

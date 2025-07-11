@@ -37,13 +37,19 @@ const Autentifikacija = () => {
         // za login gledamo access_token
         const token = res.data.access_token;
         const username = res.data.username;
+        const isAdmin = res.data.isAdmin;
         // pohranite token i username u sessionStorage
         if (token) {
           sessionStorage.setItem('auth_token', token);
           sessionStorage.setItem('username', username);
+          sessionStorage.setItem('isAdmin', isAdmin);
           toast.success(successMsg);
           // nakon kratke pauze, idi na /pocetna
-          setTimeout(() => navigate('/pocetna'), 1500);
+          if(isAdmin !== 1){
+            setTimeout(() => navigate('/pocetna'), 2000);
+          }else{
+            setTimeout(() => navigate('/administrator-dashboard'), 2000);
+          }
         } else {
           toast.error('Nešto nije u redu: nema tokena u odgovoru.');
         }

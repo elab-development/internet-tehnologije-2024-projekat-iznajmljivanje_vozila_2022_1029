@@ -7,27 +7,25 @@ import logo from '../images/logo3.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  // Čitamo username iz sessionStorage
+
+  // Čitamo podatke iz sessionStorage
   const username = sessionStorage.getItem('username') || '';
+  const isAdmin = sessionStorage.getItem('isAdmin') === '1';
 
-const handleLogout = async () => {
+  const handleLogout = async () => {
     const token = sessionStorage.getItem('auth_token');
-
     try {
       await axios.post(
         'http://127.0.0.1:8000/api/logout',
-        {}, // prazno telo
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
       );
     } catch (err) {
       console.error('Logout error:', err);
     } finally {
       sessionStorage.removeItem('auth_token');
       sessionStorage.removeItem('username');
+      sessionStorage.removeItem('isAdmin');
       navigate('/');
     }
   };
@@ -42,25 +40,41 @@ const handleLogout = async () => {
       </div>
 
       <div className="nav-links">
-        <Link to="/pocetna" className="nav-link">
-          Početna
-        </Link>
-        <Link to="/about" className="nav-link">
-          O nama
-        </Link>
-        <Link to="/cars" className="nav-link">
-          Naša vozila
-        </Link>
-        <Link to="/rezervacije" className="nav-link">
-          Vaše rezervacije
-        </Link>
+        {isAdmin && (
+          <>
+            <Link to="/administrator-dashboard" className="nav-link">
+              Dashboard
+            </Link>
+            <Link to="/users" className="nav-link">
+              Korisnici
+            </Link>
+            <Link to="/cars-admin" className="nav-link">
+              Automobili
+            </Link>
+          </>
+        )}
 
-        {/* Ovde ide ime */}
+        {!isAdmin && (
+          <>
+            <Link to="/pocetna" className="nav-link">
+              Početna
+            </Link>
+            <Link to="/about" className="nav-link">
+              O nama
+            </Link>
+            <Link to="/cars" className="nav-link">
+              Naša vozila
+            </Link>
+            <Link to="/rezervacije" className="nav-link">
+              Vaše rezervacije
+            </Link>
+          </>
+        )}
+
         <div className="nav-user-info">
-          <span>Trenutno prijavljen:</span>
+          <span>Trenutno prijavljen: </span>
           <strong>{username}</strong>
         </div>
-
         <button onClick={handleLogout} className="logout-button">
           Odjavi se
         </button>
