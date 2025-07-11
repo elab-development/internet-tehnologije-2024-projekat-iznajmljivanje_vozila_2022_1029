@@ -5,6 +5,7 @@ use App\Http\Controllers\RezervacijaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategorijaController;
 
 use App\Http\Controllers\AuthController;
 
@@ -28,5 +29,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
       [RezervacijaController::class, 'statistics']
     );
     Route::resource('/rezervacije', RezervacijaController::class);
+
+    Route::get('/kategorije', [KategorijaController::class, 'index']);
 
 });   
