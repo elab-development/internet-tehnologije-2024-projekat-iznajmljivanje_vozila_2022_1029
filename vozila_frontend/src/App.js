@@ -9,6 +9,7 @@ import Cars from './components/cars/Cars';
 import CarDetails from './components/cars/CarDetails';
 import About from './components/about/About';
 import Autentifikacija from './components/autentifikacija/Autentifikacija';
+import Rezervacije from './components/rezervacije/Rezervacije';
 
 function App() {
   const [isAuth, setIsAuth] = useState(
@@ -53,6 +54,11 @@ function App() {
           <Route
             path="/about"
             element={isAuth ? <About /> : <Navigate to="/" replace />}
+          />
+
+          <Route
+            path="/rezervacije"
+            element={isAuth ? <Rezervacije /> : <Navigate to="/" replace />}
           />
 
           {/* Svi ostali URL-ovi */}

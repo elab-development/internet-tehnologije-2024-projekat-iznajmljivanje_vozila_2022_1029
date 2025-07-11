@@ -51,6 +51,9 @@ const handleLogout = async () => {
         <Link to="/cars" className="nav-link">
           Naša vozila
         </Link>
+        <Link to="/rezervacije" className="nav-link">
+          Vaše rezervacije
+        </Link>
 
         {/* Ovde ide ime */}
         <div className="nav-user-info">

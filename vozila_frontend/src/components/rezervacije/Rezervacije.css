@@ -1,0 +1,207 @@
+/* src/components/rezervacije/Rezervacije.css */
+
+.rezervacije-container {
+  font-family: 'Roboto', sans-serif;
+  background: #fcfaf1;
+  padding: 30px;
+}
+
+.rez-title {
+  font-size: 28px;
+  color: #e6b31e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.rez-error {
+  color: #db4437;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.rez-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.rez-table th,
+.rez-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.rez-table th {
+  background: #e6b31e;
+  color: #ffffff;
+}
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.action-btn.detail {
+  background: #343434;
+  color: #fff;
+}
+.action-btn.detail:hover {
+  background: #2a2a2a;
+}
+.action-btn.edit {
+  background: #e6b31e;
+  color: #fff;
+}
+.action-btn.edit:hover {
+  background: #d4a21c;
+}
+.action-btn.delete {
+  background: #e63946;
+  color: #fff;
+}
+.action-btn.delete:hover {
+  background: #d62828;
+}
+
+/* Modal styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 25px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.modal-content h3 {
+  margin-top: 0;
+  color: #343434;
+  text-align: center;
+}
+.modal-content label {
+  display: block;
+  margin: 12px 0;
+  font-size: 16px;
+}
+.modal-content input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.cancel {
+  background: #e63946 !important;
+}
+
+.rez-error {
+  color: #db4437;
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ====================================== */
+/*            Modal Override             */
+/* ====================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #ffffff !important;  /* bela pozadina */
+  color: #343434 !important;             /* tamno-siva boja teksta */
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-width: 480px;
+  width: 90%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 22px;
+  text-align: center;
+  color: #e6b31e;  /* zlatna za naslov */
+}
+
+.modal-content p,
+.modal-content label {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #343434;  /* osiguravamo kontrast */
+}
+
+.modal-content a {
+  color: #e6b31e;
+  text-decoration: none;
+}
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.modal-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.modal-actions button:not(.cancel) {
+  background-color: #e6b31e;
+  color: #fff;
+}
+.modal-actions button:not(.cancel):hover {
+  background-color: #d4a21c;
+}
+.modal-actions button.cancel {
+  background-color: #e63946;
+  color: #fff;
+}
+.modal-actions button.cancel:hover {
+  background-color: #d62828;
+}
+

@@ -18,7 +18,7 @@ class RezervacijaResource extends JsonResource
         'id' => $this->id,
         'start_date' => $this->start_date,
         'end_date' => $this->end_date,
-        'licence' => url('storage/' . $this->licence),
+        'licence'  => asset("storage/{$this->licence}"),
         'total_price' => $this->total_price,
         'auto' => new AutoResource($this->auto),
         'user' => new UserResource($this->user),
