@@ -73,3 +73,43 @@
     display: flex;
     align-items: center;
   }
+
+/* ...postojeći stilovi... */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* korisnički info */
+.nav-user-info {
+  display: flex;
+  flex-direction: column;
+  color: #fcfaf1;
+  margin-right: 16px;
+  font-size: 14px;
+  text-align: right;
+  margin-left: 50px;
+}
+.nav-user-info span {
+  font-weight: 300;
+}
+.nav-user-info strong {
+  font-weight: 600;
+}
+
+/* prilagodite logout dugme (crveno/belo) */
+.logout-button {
+  background-color: #e63946;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.logout-button:hover {
+  background-color: #d62828;
+}

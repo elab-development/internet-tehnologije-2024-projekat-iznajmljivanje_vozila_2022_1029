@@ -1,25 +1,69 @@
+// src/App.jsx
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Footer from './components/footer/Footer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Pocetna from './components/pocetna/Pocetna';
 import Cars from './components/cars/Cars';
 import CarDetails from './components/cars/CarDetails';
 import About from './components/about/About';
+import Autentifikacija from './components/autentifikacija/Autentifikacija';
 
 function App() {
+  const [isAuth, setIsAuth] = useState(
+    !!sessionStorage.getItem('auth_token')
+  );
+
+  // Svakih 500ms proverava da li je token i ažurira isAuth
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIsAuth(!!sessionStorage.getItem('auth_token'));
+    }, 500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="App">
-       <BrowserRouter>
-        <Navbar></Navbar>
+      <BrowserRouter>
+        {isAuth && <Navbar />}
+
         <Routes>
-          <Route path="/" element={<Pocetna />} />
-          <Route path="/cars" element={<Cars />}/>
-          <Route path="/cars/:id" element={<CarDetails />} />
-          <Route path="/about" element={<About />} />
+          {/* Korak 1: Korisnik ide na korenski URL */}
+          <Route
+            path="/"
+            element={
+              isAuth ? <Navigate to="/pocetna" replace /> : <Autentifikacija />
+            }
+          />
+
+          {/* Zaštićene rute */}
+          <Route
+            path="/pocetna"
+            element={isAuth ? <Pocetna /> : <Navigate to="/" replace />}
+          />
+          <Route
+            path="/cars"
+            element={isAuth ? <Cars /> : <Navigate to="/" replace />}
+          />
+          <Route
+            path="/cars/:id"
+            element={isAuth ? <CarDetails /> : <Navigate to="/" replace />}
+          />
+          <Route
+            path="/about"
+            element={isAuth ? <About /> : <Navigate to="/" replace />}
+          />
+
+          {/* Svi ostali URL-ovi */}
+          <Route
+            path="*"
+            element={<Navigate to={isAuth ? '/pocetna' : '/'} replace />}
+          />
         </Routes>
+
+        {isAuth && <Footer />}
       </BrowserRouter>
-      <Footer></Footer>
     </div>
   );
 }
