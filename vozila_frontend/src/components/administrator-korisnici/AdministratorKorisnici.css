@@ -1,0 +1,148 @@
+.korisnici-container {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fcfaf1;
+  padding: 40px 20px;
+  color: #343434;
+}
+
+.korisnici-title {
+  text-align: center;
+  font-size: 28px;
+  color: #e6b31e;
+  margin-bottom: 30px;
+}
+
+.korisnici-error {
+  color: #db4437;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.korisnici-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.korisnici-table th,
+.korisnici-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.korisnici-table th {
+  background-color: #e6b31e;
+  color: #fff;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-btn.detail {
+  background-color: #343434;
+  color: #fff;
+}
+.action-btn.detail:hover {
+  background-color: #2a2a2a;
+}
+
+.action-btn.edit {
+  background-color: #e6b31e;
+  color: #fff;
+}
+.action-btn.edit:hover {
+  background-color: #d4a21c;
+}
+
+.action-btn.delete {
+  background-color: #e63946;
+  color: #fff;
+}
+.action-btn.delete:hover {
+  background-color: #d62828;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  max-width: 360px;
+  width: 90%;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #e6b31e;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-content p,
+.modal-content label {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #343434;
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fcfaf1;
+}
+
+.admin-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel {
+  background-color: #e63946 !important;
+  color: #fff !important;
+}
