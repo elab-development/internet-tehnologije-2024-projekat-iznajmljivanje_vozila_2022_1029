@@ -1,0 +1,36 @@
+/* Container that holds the map */
+.map-wrapper {
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  margin: 40px auto;
+  border: 2px solid #e6b31e;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* Leaflet map full size in the wrapper */
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-radius: 8px;
+}
+
+/* Popup styling override */
+.leaflet-popup-content-wrapper {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.leaflet-popup-content {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #343434;
+  line-height: 1.4;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff;
+}

@@ -107,6 +107,12 @@ const AdministratorAutomobili = () => {
         kategorija_id: parseInt(createCat, 10),
       });
       toast.success('Automobil dodat.');
+      // Reset form fields nakon uspešnog kreiranja
+      setCreateName('');
+      setCreateDesc('');
+      setCreatePrice('');
+      setCreateCat('');
+      setFormErrors({});
       setShowCreate(false);
       fetchAuta();
     } catch (err) {

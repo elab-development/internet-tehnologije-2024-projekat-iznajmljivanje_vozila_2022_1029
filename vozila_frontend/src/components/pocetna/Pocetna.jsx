@@ -6,6 +6,7 @@ import auto2 from '../images/auto2.jpg';
 import auto3 from '../images/auto3.webp';
 import auto4 from '../images/auto4.jpg';
 import './Pocetna.css';
+import Mapa from '../mapa/Mapa'; 
 
 const Pocetna = () => {
   const images = [auto1, auto2, auto3, auto4];
@@ -34,6 +35,11 @@ const Pocetna = () => {
         <Button onClick={() => window.location.href = '/about'}>
           Procitajte vise
         </Button>
+      </section>
+
+      <section className="pocetna-mapa">
+        <h2>Naše lokacije</h2>
+        <Mapa />
       </section>
     </div>
   );

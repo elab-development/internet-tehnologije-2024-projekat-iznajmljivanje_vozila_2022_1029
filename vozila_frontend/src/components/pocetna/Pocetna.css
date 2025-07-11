@@ -43,3 +43,15 @@
   .pocetna-content button {
     margin-top: 20px;
   }
+
+.pocetna-mapa {
+  margin: 40px auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+.pocetna-mapa h2 {
+  font-size: 24px;
+  color: #e6b31e;
+  margin-bottom: 20px;
+}
