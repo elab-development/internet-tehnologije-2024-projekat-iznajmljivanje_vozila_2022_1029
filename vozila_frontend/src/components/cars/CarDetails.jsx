@@ -15,18 +15,28 @@ const CarDetails = () => {
   const handleConvert = async () => {
     if (!showTable) {
       try {
-        //ucitavanje kljuca iz lokalnog enva
         const apiKey = process.env.REACT_APP_EXCHANGE_RATE_API_KEY;
-        const response = await axios.get(
-          `https://api.exchangerate.host/latest?access_key=${apiKey}&base=EUR`
-        );
-        setConversionRates(response.data.rates);
+        const response = await axios.get('http://api.currencylayer.com/live', {
+          params: {
+            access_key: apiKey,
+            source: 'EUR',                // želite cene za EUR →
+            currencies: 'USD,CAD,RSD'     // filtriramo samo ove valute
+          }
+        });
+        // response.data.quotes ima ključeve kao EURUSD, EURCAD, EURRSD...
+        const { quotes } = response.data;
+        setConversionRates({
+          USD: quotes.EURUSD,
+          CAD: quotes.EURCAD,
+          RSD: quotes.EURRSD,
+          EUR: 1
+        });
         setShowTable(true);
-      } catch (error) {
-        console.error('Error fetching conversion rates:', error);
+      } catch (err) {
+        console.error('Error fetching conversion rates:', err);
       }
     } else {
-      setShowTable(false); 
+      setShowTable(false);
     }
   };
 
@@ -54,37 +64,29 @@ const CarDetails = () => {
                     {showTable ? 'Sakrij konverziju' : 'Prikaži konverziju'}
                 </Button>
                 {showTable && conversionRates && (
-                    <table className="conversion-table">
+                  <table className="conversion-table">
                     <thead>
-                        <tr>
+                      <tr>
                         <th>Valuta</th>
                         <th>Kurs</th>
                         <th>Konvertovana cena</th>
-                        </tr>
+                      </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>USD</td>
-                        <td>{conversionRates.USD.toFixed(2)}</td>
-                        <td>{(Number(auto.price_per_day) * conversionRates.USD).toFixed(2)} USD</td>
-                        </tr>
-                        <tr>
-                        <td>CAD</td>
-                        <td>{conversionRates.CAD.toFixed(2)}</td>
-                        <td>{(Number(auto.price_per_day) * conversionRates.CAD).toFixed(2)} CAD</td>
-                        </tr>
-                        <tr>
-                        <td>RSD</td>
-                        <td>{conversionRates.RSD.toFixed(2)}</td>
-                        <td>{(Number(auto.price_per_day) * conversionRates.RSD).toFixed(2)} RSD</td>
-                        </tr>
-                        <tr>
-                        <td>EUR</td>
-                        <td>1.00</td>
-                        <td>{Number(auto.price_per_day).toFixed(2)} EUR</td>
-                        </tr>
+                      {['USD', 'CAD', 'RSD', 'EUR'].map(cur => {
+                        const rate = conversionRates[cur];
+                        return (
+                          <tr key={cur}>
+                            <td>{cur}</td>
+                            <td>{rate.toFixed(2)}</td>
+                            <td>
+                              {(Number(auto.price_per_day) * rate).toFixed(2)} {cur}
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
-                    </table>
+                  </table>
                 )}
                 </div>
             </div>
