@@ -31,7 +31,37 @@ Kompletna arhitektura prati **MVC** pattern:
 📦 Struktura repozitorijuma
 ---------------------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopyEdit.  ├── vozila_backend/               # Laravel API  │   ├── app/  │   │   ├── Http/Controllers/  │   │   ├── Http/Resources/  │   │   └── Models/  │   ├── database/  │   │   ├── migrations/  │   │   ├── seeders/  │   │   └── factories/  │   ├── routes/api.php  │   └── .env                       # DB & API keys (SANCTUM_SECRET, ALPHA_VANTAGE_KEY)  └── vozila_frontend/              # React SPA      ├── public/      ├── src/      │   ├── components/      │   │   ├── cars/      │   │   ├── administrator-…/      │   │   ├── autentifikacija/      │   │   ├── mapa/      │   │   ├── carousel/      │   │   └── …      │   ├── hooks/                 # useAuta, useAuto, useDeoniceAutomobilskihKompanija      │   ├── images/                # logo, marker.png, screenshot-i      │   ├── App.jsx                # BrowserRouter + ProtectedRoutes      │   └── index.js               # ReactDOM.render      └── package.json   `
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  
+```bash
+.
+├── vozila_backend/               # Laravel API
+│   ├── app/
+│   │   ├── Http/Controllers/
+│   │   ├── Http/Resources/
+│   │   └── Models/
+│   ├── database/
+│   │   ├── migrations/
+│   │   ├── seeders/
+│   │   └── factories/
+│   ├── routes/api.php
+│   └── .env                       # DB & API keys (SANCTUM_SECRET, ALPHA_VANTAGE_KEY)
+└── vozila_frontend/              # React SPA
+    ├── public/
+    ├── src/
+    │   ├── components/
+    │   │   ├── cars/
+    │   │   ├── administrator-…/
+    │   │   ├── autentifikacija/
+    │   │   ├── mapa/
+    │   │   ├── carousel/
+    │   │   └── …
+    │   ├── hooks/                 # useAuta, useAuto, useDevonice…
+    │   ├── images/                # logo, marker.png, screenshot-i
+    │   ├── App.jsx                # BrowserRouter + ProtectedRoutes
+    │   └── index.js               # ReactDOM.render
+    └── package.json
+
+  `
 
 ⚙️ Instalacija i pokretanje
 ---------------------------
