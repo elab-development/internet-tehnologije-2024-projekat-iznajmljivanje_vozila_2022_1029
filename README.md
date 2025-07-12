@@ -31,7 +31,7 @@ Kompletna arhitektura prati **MVC** pattern:
 📦 Struktura repozitorijuma
 ---------------------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  
+Plain 
 ```bash
 .
 ├── vozila_backend/               # Laravel API
@@ -60,8 +60,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
     │   ├── App.jsx                # BrowserRouter + ProtectedRoutes
     │   └── index.js               # ReactDOM.render
     └── package.json
-
-  `
+```
 
 ⚙️ Instalacija i pokretanje
 ---------------------------
