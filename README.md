@@ -1,7 +1,23 @@
 Iznajmljivanje Vozila
 =====================
 
-**Full-stack web aplikacija za upravljanje najmom automobila**Backend: Laravel (PHP 8) • Frontend: React (JSX + Hooks) • Baza: MySQL + phpMyAdmin • Autentifikacija: Sanctum • REST API • OpenStreetMap + Leaflet • Recharts • api.exchangerate.host & Alpha Vantage
+**Full-stack web aplikacija za upravljanje najmom automobila**
+
+• Backend: Laravel (PHP 8) 
+
+• Frontend: React (JSX + Hooks)
+
+• Baza: MySQL + phpMyAdmin 
+
+• Autentifikacija: Sanctum 
+
+• REST API 
+
+• OpenStreetMap + Leaflet 
+
+• Recharts 
+
+• api.exchangerate.host & Alpha Vantage
 
 🚀 Pregled
 ----------
@@ -65,13 +81,26 @@ Plain
 ⚙️ Instalacija i pokretanje
 ---------------------------
 
-1.  `clone https://github.com/elab-development/internet-tehnologije-2024-projekat-iznajmljivanje\_vozila\_2022\_1029.git`
+1. Klonirajte repozitorijum:
+```bash
+    git clone https://github.com/elab-development/internet-tehnologije-2024-projekat-iznajmljivanje\_vozila\_2022\_1029.git
+```
+2. Pokrenite backend:
+```bash
+   cd vozila_backend
+   composer install
+   php artisan migrate:fresh --seed
+   php artisan serve
+```
     
-2.  `vozila\_backendcomposer installcp .env.example .env# Podesite DB\_\* i REACT\_APP\_ALPHA\_VANTAGE\_KEY u .envphp artisan key:generatephp artisan migrate:fresh --seedphp artisan serve`
+3. Pokrenite frontend:
+```bash
+   cd vozila_frontend
+   npm install
+   npm start
+```
     
-3.  `bash ../vozila\_frontendnpm installnpm start`
-    
-4.  Frontend: [http://localhost:3000](http://localhost:3000)Backend API: [http://127.0.0.1:8000/api](http://127.0.0.1:8000/api)
+4.  Frontend pokrenut na: [http://localhost:3000](http://localhost:3000) Backend API pokrenut na: [http://127.0.0.1:8000/api](http://127.0.0.1:8000/api)
     
 
 🎯 Ključne funkcionalnosti
@@ -127,21 +156,13 @@ Plain
 🛠️ Integracije & eksterni servisi
 ----------------------------------
 
-ServisNamena**api.exchangerate.host**Besplatna konverzija valuta (EUR ↔ USD, CAD, RSD…)**Alpha Vantage**Cene deonica Tesla, BMW, Mercedes, VW, Toyota**OpenStreetMap + Leaflet**Prikaz mape Srbije sa markerima**Recharts**Grafički prikaz statistike**React-Toastify**Obaveštenja o uspehu i grešci
-
-📖 Dokumentacija
-----------------
-
-Detaljna dokumentacija je dostupna u **Aleksa\_Kovacevic\_2022\_1029\_projekat.docx** (poglavlja 3.1–3.4):
-
-*   **3.1** Use-case analize i dijagrami
-    
-*   **3.2** Sekvencijalni dijagrami i struktura sistema
-    
-*   **3.3** Projektovanje UI, aplikacione logike, migracije i modeli
-    
-*   **3.4** Dizajn baze podataka i ER model
-    
+| Servis                       | Namena                                          |
+| :--------------------------- | :---------------------------------------------- |
+| **api.exchangerate.host** | Besplatna konverzija valuta (EUR ↔ USD, CAD, RSD…) |
+| **Alpha Vantage** | Cene deonica Tesla, BMW, Mercedes, VW, Toyota   |
+| **OpenStreetMap + Leaflet** | Prikaz mape Srbije sa markerima                 |
+| **Recharts** | Grafički prikaz statistike                      |
+| **React-Toastify** | Obaveštenja o uspehu i grešci                   |
 
 🤝 Autori & licence
 -------------------
