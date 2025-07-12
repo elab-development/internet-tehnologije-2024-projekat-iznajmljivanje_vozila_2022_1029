@@ -169,7 +169,7 @@ Plain
 
 *   **Autori**: Aleksa Kovačević (2022/1029), Nemanja Ilić (2022/1049)
     
-*   **Mentor**: prof. dr Petar Lukovac
+*   **Mentor**: Petar Lukovac
     
 *   **GitHub**: [https://github.com/elab-development/internet-tehnologije-2024-projekat-iznajmljivanje\_vozila\_2022\_1029](https://github.com/elab-development/internet-tehnologije-2024-projekat-iznajmljivanje_vozila_2022_1029)
     
