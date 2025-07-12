@@ -14,7 +14,8 @@ Route::post('/register',[AuthController::class,'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/auta', [AutoController::class, 'index']); 
-Route::get('/auta/{id}', [AutoController::class, 'show']); 
+Route::get('/auta/{id}', [AutoController::class, 'show']);
+Route::post('/auta', [AutoController::class, 'store']);  
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
