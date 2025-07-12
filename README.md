@@ -65,11 +65,11 @@ Plain
 ⚙️ Instalacija i pokretanje
 ---------------------------
 
-1.  bashCopyEditgit clone https://github.com/elab-development/internet-tehnologije-2024-projekat-iznajmljivanje\_vozila\_2022\_1029.git
+1.  `clone https://github.com/elab-development/internet-tehnologije-2024-projekat-iznajmljivanje\_vozila\_2022\_1029.git`
     
-2.  bashCopyEditcd vozila\_backendcomposer installcp .env.example .env# Podesite DB\_\* i REACT\_APP\_ALPHA\_VANTAGE\_KEY u .envphp artisan key:generatephp artisan migrate:fresh --seedphp artisan serve
+2.  `vozila\_backendcomposer installcp .env.example .env# Podesite DB\_\* i REACT\_APP\_ALPHA\_VANTAGE\_KEY u .envphp artisan key:generatephp artisan migrate:fresh --seedphp artisan serve`
     
-3.  bashCopyEditcd ../vozila\_frontendnpm installnpm start
+3.  `bash ../vozila\_frontendnpm installnpm start`
     
 4.  Frontend: [http://localhost:3000](http://localhost:3000)Backend API: [http://127.0.0.1:8000/api](http://127.0.0.1:8000/api)
     
