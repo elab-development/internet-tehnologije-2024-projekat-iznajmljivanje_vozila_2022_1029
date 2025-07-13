@@ -47,13 +47,13 @@ class RezervacijaController extends Controller
         $totalDays = Carbon::parse($validated['start_date'])
         ->diffInDays(Carbon::parse($validated['end_date'])) + 1;
 
-            $path = $request->file('licence')->store('public/licences');
-            $fileName = basename($path);
+        $path = $request->file('licence')->store('licences', 'public');
+        $fileName = $path;
 
         $rezervacija = Rezervacija::create([
             'start_date' => $validated['start_date'],
             'end_date' => $validated['end_date'],
-            'licence' => "licences/{$fileName}",
+            'licence' => $fileName,
             'total_price' => $auto->price_per_day * $totalDays,
             'user_id' => $user->id,
             'auto_id' => $validated['auto_id'],

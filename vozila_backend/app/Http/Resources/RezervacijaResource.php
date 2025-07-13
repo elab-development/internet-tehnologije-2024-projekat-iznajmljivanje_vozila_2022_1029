@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class RezervacijaResource extends JsonResource
 {
@@ -18,7 +19,7 @@ class RezervacijaResource extends JsonResource
         'id' => $this->id,
         'start_date' => $this->start_date,
         'end_date' => $this->end_date,
-        'licence'  => asset("storage/{$this->licence}"),
+        'licence'  => Storage::disk('public')->url($this->licence),
         'total_price' => $this->total_price,
         'auto' => new AutoResource($this->auto),
         'user' => new UserResource($this->user),

@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        'licences' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/licences'),
+            'url'        => env('APP_URL').'/licences',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
